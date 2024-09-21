@@ -1,10 +1,17 @@
+import { useEnsAddress } from "wagmi";
 import React from "react";
+import { normalize } from "viem/ens";
 import Link from "next/link";
 import { NEXT_PUBLIC_GATEWAY_URL } from "../../app/constants";
 import { useAccount, useReadContract } from "wagmi";
 
 const Topbar = ({ profile }) => {
   const { address } = useAccount();
+  const result = useEnsAddress({
+    name: normalize("wevm.eth"),
+  });
+  console.log("Result", result);
+
   // console.log("profileowner:", profile.owner, "address:", address);
   return (
     <div className="text-white  flex flex-col ">
