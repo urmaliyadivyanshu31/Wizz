@@ -121,23 +121,23 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex jus justify-center h-[100vh] width-[100vw] align-middle  lg:hidden">
-        <h1 className=" m-auto p-6 text-center">
+      <div className="flex justify-center h-[100vh] w-[100vw] items-center lg:hidden">
+        <h1 className="text-center text-2xl font-bold text-white p-6">
           Currently, Wizz UI works only with large screen devices.
         </h1>
       </div>
-      <div className="hidden  h-[80%] sm:hidden md:hidden lg:flex">
-        <div className="w-full h-[100vh] flex-[0.7]  flex flex-col justify-center  align-middle p-32">
-          <div className="flex justify-between w-full ">
-            <div className="m-4">
-              <div className="text-white text-3xl font-bold">
+      <div className="hidden lg:flex lg:h-[100vh]">
+        <div className="w-full flex flex-col justify-center items-center p-32">
+          <div className="flex justify-between w-full mb-8">
+            <div className="text-white">
+              <div className="text-3xl font-bold">
                 Create your account | Login
               </div>
-              <div className="text-white">get started with wizz</div>
+              <div>get started with wizz</div>
             </div>
             <div>
               <div className="w-48">
-                <div className="space-y-6  py-4 bottom-0 flex flex-col ">
+                <div className="space-y-6 py-4 flex flex-col">
                   {/* <BlueCreateWalletButton /> */}
                   <ConnectButton />
                 </div>
@@ -146,13 +146,13 @@ export default function Home() {
           </div>
           {address && isAccount == false ? (
             <>
-              <div className="flex md:flex-row flex-col">
+              <div className="flex md:flex-row flex-col space-y-4">
                 <input
                   type="text"
                   onChange={(e) =>
                     setNewUser({ ...newUser, fullname: e.target.value })
                   }
-                  className="appearance-none block w-full bg-[#34374D]  text-white rounded-xl py-4 px-4 m-4 leading-tight focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                  className="appearance-none block w-full bg-[#34374D] text-white rounded-xl py-4 px-4 leading-tight focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Display Name"
                 />
                 <input
@@ -160,7 +160,7 @@ export default function Home() {
                     setNewUser({ ...newUser, username: e.target.value })
                   }
                   type="text"
-                  className="appearance-none block w-full bg-[#34374D]  text-white rounded-xl py-4 px-4 m-4 leading-tight focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                  className="appearance-none block w-full bg-[#34374D] text-white rounded-xl py-4 px-4 leading-tight focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Username"
                 />
               </div>
@@ -169,20 +169,20 @@ export default function Home() {
                   onChange={(e) =>
                     setNewUser({ ...newUser, bio: e.target.value })
                   }
-                  className="appearance-none block w-full bg-[#34374D]  text-white rounded-xl py-4 px-4 m-4 leading-tight focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                  className="appearance-none block w-full bg-[#34374D] text-white rounded-xl py-4 px-4 leading-tight focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Write a crazy bio"
                 />
               </div>
-              <div className="flex md:flex-row flex-col">
+              <div className="flex md:flex-row flex-col space-y-4">
                 <input
                   type="file"
                   onChange={changeHandler}
-                  className="appearance-none block w-full bg-[#34374D]  text-white rounded-xl py-4 px-4 m-4 leading-tight focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                  className="appearance-none block w-full bg-[#34374D] text-white rounded-xl py-4 px-4 leading-tight focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Choose Profile Image"
                 />
               </div>
               <div className="w-[30%] m-4">
-                <div className="space-y-6 py-4 bottom-0 flex flex-col ">
+                <div className="space-y-6 py-4 flex flex-col">
                   <button
                     onClick={async () => {
                       try {
@@ -193,7 +193,7 @@ export default function Home() {
                         console.error("Error during submission:", error);
                       }
                     }}
-                    className="bg-[#7501E9] py-3  w-[90%] text text-white border-none  rounded-xl"
+                    className="bg-[#7501E9] py-3 w-[90%] text-white border-none rounded-xl"
                   >
                     Create Account
                   </button>
@@ -204,8 +204,8 @@ export default function Home() {
             <></>
           )}
         </div>
-        <div className="flex-[0.5] h-[100vh] ">
-          <div className="  bg-[url(https://w0.peakpx.com/wallpaper/914/142/HD-wallpaper-cool-blue-purple-abstract-dark-glow-loveurhunny-pink.jpg)] top-[6rem] right-[16rem] flex flex-col justify-between h-[100vh] bg-cover pl-20">
+        <div className="flex-[0.5] h-[100vh]">
+          <div className="bg-[url(https://w0.peakpx.com/wallpaper/914/142/HD-wallpaper-cool-blue-purple-abstract-dark-glow-loveurhunny-pink.jpg)] top-[6rem] right-[16rem] flex flex-col justify-between h-[100vh] bg-cover pl-20">
             <div className="h-36 w-36 mt-60">
               {address &&
               preview &&
