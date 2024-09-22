@@ -6,7 +6,7 @@ import abi from "../../../contract/jobsabi.json";
 import { toast } from "react-toastify";
 import { redirect } from "next/navigation";
 import dynamic from "next/dynamic";
-import { BigNumberish, toBigInt, BigNumber } from "ethers";
+import { BigNumberish, toBigInt, BigNumber } from "ethers"; // Ensure ethers is installed
 const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 const { SignProtocolClient, SpMode, EvmChains } = require("@ethsign/sp-sdk");
 const { privateKeyToAccount } = require("viem/accounts");
@@ -59,7 +59,8 @@ const client = new SignProtocolClient(SpMode.OnChain, {
 // }
 
 const CreateJob = () => {
-  console.log(BigInt("0xSPS_3N0aWPqc0100HN-ofX5Cj"), "yes");
+  // Remove the BigInt conversion for the schema ID
+  console.log("Schema ID:", "SPS_3N0aWPqc0100HN-ofX5Cj"); // Just log the string
   const { address } = useAccount();
   console.log("this is signer", address);
   const [cid, setCid] = useState();
@@ -173,7 +174,7 @@ const CreateJob = () => {
           // Create attestation with the CID from IPFS
 
           const res2 = await client.createAttestation({
-            schemaId: BigInt("SPS_3N0aWPqc0100HN-ofX5Cj"),
+            schemaId: "SPS_3N0aWPqc0100HN-ofX5Cj", // Use as a string
             data: {
               signer: address,
               cid: resData.IpfsHash,
