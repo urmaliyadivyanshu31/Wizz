@@ -178,10 +178,7 @@ const CreateJob = () => {
         setCid(resData.IpfsHash);
         try {
           const res2 = await client.createAttestation({
-            // schemaId: BigNumber.from("SPS_sHVFe_V5dzMvBWtzzk4pR"),
-            schemaId: BigNumber.from(
-              "0x5350535f73485646655f5635647a4d764257747a7a6b3470520d0a"
-            ),
+            schemaId: "SPS_3N0aWPqc0100HN-ofX5Cj", // Use as a string
             data: {
               signer: address,
               cid: resData.IpfsHash,
