@@ -11,6 +11,7 @@ export default async function handler(req, res) {
     // Such as, setting a user as "verified" in a database
     res.status(200).send(verifyRes);
   } else {
+    console.log(verifyRes);
     // This is where you should handle errors from the World ID /verify endpoint.
     // Usually these errors are due to a user having already verified.
     res.status(400).send(verifyRes);

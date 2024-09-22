@@ -85,9 +85,10 @@ export default function UserInfoLayout({ children }) {
     }
   }, [address]);
 
-  const onSuccess = () => {
+  const onSuccess = (res) => {
+    console.log(res);
     toast.success("Successfully logged in using world coin");
-    window.location.href = "/success";
+    // window.location.href = "/feeds";
   };
   const handleVerify = async (proof) => {
     const res = await fetch("/api/verify", {
@@ -101,6 +102,7 @@ export default function UserInfoLayout({ children }) {
     if (!res.ok) {
       throw new Error("Verification failed."); // IDKit will display the error message to the user in the modal
     }
+    console.log(res);
   };
 
   return (
@@ -125,7 +127,7 @@ export default function UserInfoLayout({ children }) {
                     >
                       Register | Login
                     </Link>
-
+{/* 
                     <IDKitWidget
                       app_id="app_staging_0a024eb570eaba23ee83642d4f601c77" // obtained from the Developer Portal
                       action="login" // obtained from the Developer Portal
@@ -166,7 +168,7 @@ export default function UserInfoLayout({ children }) {
                           </span>
                         </button>
                       )}
-                    </IDKitWidget>
+                    </IDKitWidget> */}
                   </div>
                 </div>
               </>
