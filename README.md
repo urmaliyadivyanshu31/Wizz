@@ -100,4 +100,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your WIZZ app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-``
+
+## Contract Addresses
+
+The following are the deployed contract addresses on Flow:
+
+- **Main Contract Address**: `0x6b502744ABF017E62C52CC4842f894Db5f712e8d`
+- **Jobs Contract Address**: `0x2f4279f5E8A53BFde5fFafC5D1febBb957471FE5`
