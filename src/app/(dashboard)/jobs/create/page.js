@@ -1,12 +1,13 @@
 "use client";
 import React, { useEffect, useState, useRef, useMemo } from "react";
 import { useAccount, useWriteContract, useReadContract } from "wagmi";
+
 import { JOBS_CONTRACT_ADDRESS, PINATA_JWT } from "../../../constants";
 import abi from "../../../contract/jobsabi.json";
 import { toast } from "react-toastify";
 import { redirect } from "next/navigation";
 import dynamic from "next/dynamic";
-import { BigNumberish, toBigInt, BigNumber } from "ethers";
+import { BigNumber, Contract, ethers } from "ethers";
 const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 const { SignProtocolClient, SpMode, EvmChains } = require("@ethsign/sp-sdk");
 const { privateKeyToAccount } = require("viem/accounts");
@@ -59,7 +60,21 @@ const client = new SignProtocolClient(SpMode.OnChain, {
 // }
 
 const CreateJob = () => {
-  console.log(BigInt("0xSPS_3N0aWPqc0100HN-ofX5Cj"), "yes");
+  const createAttestationMan = async () => {
+    const createAttestationRes = await client.createAttestation({
+      schemaId: "SPS_sHVFe_V5dzMvBWtzzk4pR",
+      data: {
+        signer: "0x26A354EaE643aEf626ecCe22F7D0B01F79136494",
+        jobTitle: "Backend Engineer",
+        jobDescription: "Node Backend Engineer",
+        jobType: "Job",
+        bannerUrl: "Node Backend Engineer",
+      },
+      indexingValue: "1",
+    });
+  };
+  let dy = createAttestationMan();
+  console.log("yo yo yo", dy);
   const { address } = useAccount();
   console.log("this is signer", address);
   const [cid, setCid] = useState();
@@ -158,22 +173,15 @@ const CreateJob = () => {
         );
 
         const resData = await res.json();
-        console.log("Detailed description IPFS CID:", resData.IpfsHash);
+        // console.log("Detailed description IPFS CID:", resData.IpfsHash);
+        // console.log("Detailed description IPFS data:", resData);
         setCid(resData.IpfsHash);
         try {
-          // Upload job details to IPFS
-          // const ipfsData = JSON.stringify({
-          //   bannerUrl,
-          //   jobType,
-          //   jobDescription,
-          //   jobTitle,
-          // });
-          // const cid = await uploadToIPFS(ipfsData);
-
-          // Create attestation with the CID from IPFS
-
           const res2 = await client.createAttestation({
-            schemaId: BigInt("SPS_3N0aWPqc0100HN-ofX5Cj"),
+            // schemaId: BigNumber.from("SPS_sHVFe_V5dzMvBWtzzk4pR"),
+            schemaId: BigNumber.from(
+              "0x5350535f73485646655f5635647a4d764257747a7a6b3470520d0a"
+            ),
             data: {
               signer: address,
               cid: resData.IpfsHash,
